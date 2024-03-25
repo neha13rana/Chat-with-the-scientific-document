@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Documents</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg');
+            background-color: #121212; /* Dark gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: linear-gradient(to right, #1a237e, #ff6f00); /* Gradient effect */
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Soft shadow effect */
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            margin: 0 0 20px;
+            padding: 0;
+            font-size: 28px;
+            color: #fff; /* White text color */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        input[type="file"], input[type="text"] {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #333; /* Dark gray background */
+            color: #fff; /* White text color */
+            width: 80%;
+            max-width: 300px;
+            font-size: 16px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        input[type="file"]:hover, input[type="text"]:hover {
+            background: #555; /* Slightly lighter dark gray hover effect */
+        }
+
+        button {
+            padding: 12px 30px;
+            background-color: #ef6c00; /* Highlighted orange button color */
+            color: #fff; /* White text color */
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #ff9800; /* Darker orange hover effect */
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #fff; /* White text color */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chat with Documents</h1>
+        <h2>Upload Document</h2>
+        <form method="post" enctype="multipart/form-data" action="{% url 'index' %}">
+            {% csrf_token %}
+            <input type="file" name="file" required>
+            <button type="submit">Upload</button>
+        </form>
+        <hr>
+        <h2>Ask a Question</h2>
+        <form method="post" action="{% url 'question_answering' %}">
+            {% csrf_token %}
+            <input type="hidden" name="docs" value="{{ docsearch }}">
+            <input type="text" name="question" placeholder="Enter your question" required>
+            <button type="submit">Ask</button>
+        </form>
+        {% if answer %}
+        <hr>
+        <h2>Answer</h2>
+        <p>{{ answer }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

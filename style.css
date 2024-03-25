@@ -1,0 +1,50 @@
+/* chatapp/static/chatapp/style.css */
+
+/* Main container */
+.chat-container {
+    width: 100%;
+    max-width: 600px; /* Adjust the width as needed */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+/* Messages container */
+.messages-container {
+    height: 300px; /* Set a fixed height or use overflow */
+    overflow-y: auto; /* Enable vertical scroll if needed */
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd; /* Border for messages container */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Input container */
+.input-container {
+    margin-top: 20px;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="file"],
+button {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc; /* Border for input fields */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Send button */
+button {
+    background-color: #007bff; /* Blue color for send button */
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Error message */
+#error-message {
+    margin-top: 10px;
+    font-size: 14px;
+}

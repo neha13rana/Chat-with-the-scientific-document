@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Answering</title>
+</head>
+<body>
+    <!-- Display result here -->
+    <form method="post" action="{% url 'question_answering' %}">
+        {% csrf_token %}
+        <input type="hidden" name="docs" value="{{ docsearch }}">
+        <input type="text" name="question" placeholder="Ask your question">
+        <button type="submit">Ask</button>
+    </form>
+</body>
+</html>
