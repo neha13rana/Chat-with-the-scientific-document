@@ -22,7 +22,7 @@ on beyond pdf - .docx, latex (.tex), .ppt (infographics/research slides). This a
 hallucinations in LLMs since it is extracting and presenting information only from documents 
 provided by end user.
 We want you to create a solution which can take input as atleast 2 or more doc types including 
-pdf and making it ready to parse/send to any LLM. Bonus points for building a chat interface by
+pdf and making it ready to parse/send to any LLM. 
 
 **main technology which we are used here is :**
 
